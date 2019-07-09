@@ -4,9 +4,12 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import Features from "../components/Features";
+import HeroSlider from "../components/common/HeroSlider";
 
 export const IndexPageTemplate = ({
-  image,
+  image1,
+  image2,
+  image3,
   title,
   heading,
   subheading,
@@ -14,55 +17,12 @@ export const IndexPageTemplate = ({
   description,
   intro
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          height: "150px",
-          lineHeight: "1",
-          justifyContent: "space-around",
-          alignItems: "left",
-          flexDirection: "column"
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-            backgroundColor: "rgb(255, 68, 0)",
-            color: "white",
-            lineHeight: "1",
-            padding: "0.25em"
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-            backgroundColor: "rgb(255, 68, 0)",
-            color: "white",
-            lineHeight: "1",
-            padding: "0.25em"
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
-    </div>
+  <React.Fragment>
+    <HeroSlider
+      images={[image1, image2, image3]}
+      title={title}
+      subheading={subheading}
+    />
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
@@ -99,11 +59,13 @@ export const IndexPageTemplate = ({
         </div>
       </div>
     </section>
-  </div>
+  </React.Fragment>
 );
 
 IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
@@ -120,7 +82,9 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
+        image1={frontmatter.image1}
+        image2={frontmatter.image2}
+        image3={frontmatter.image3}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -147,9 +111,23 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image {
+        image1 {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1880, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image2 {
+          childImageSharp {
+            fluid(maxWidth: 1733, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image3 {
+          childImageSharp {
+            fluid(maxWidth: 1880, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

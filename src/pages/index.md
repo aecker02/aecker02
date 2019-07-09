@@ -1,7 +1,9 @@
 ---
 templateKey: index-page
 title: Great coffee with a Alan
-image: /img/home-jumbotron.jpg
+image1: /img/hero-image-1.jpeg
+image2: /img/hero-image-2.jpeg
+image3: /img/hero-image-3.jpeg
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:
@@ -68,4 +70,3 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
-

@@ -1,14 +1,14 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import './all.sass'
-import useSiteMetadata from './SiteMetadata'
+import React from "react";
+import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
+import Header from "./common/Header";
+import "./all.sass";
+import useSiteMetadata from "./SiteMetadata";
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+  const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <React.Fragment>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -44,11 +44,11 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:url" content="/" />
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
+      <Header />
+      <main>{children}</main>
       <Footer />
-    </div>
-  )
-}
+    </React.Fragment>
+  );
+};
 
-export default TemplateWrapper
+export default TemplateWrapper;
