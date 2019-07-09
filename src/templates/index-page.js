@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
 import HeroSlider from "../components/common/HeroSlider";
 
 export const IndexPageTemplate = ({
@@ -11,11 +10,7 @@ export const IndexPageTemplate = ({
   image2,
   image3,
   title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro
+  subheading
 }) => (
   <React.Fragment>
     <HeroSlider
@@ -23,42 +18,7 @@ export const IndexPageTemplate = ({
       title={title}
       subheading={subheading}
     />
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section className="section section--gradient"></section>
   </React.Fragment>
 );
 
@@ -67,13 +27,7 @@ IndexPageTemplate.propTypes = {
   image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
+  subheading: PropTypes.string
 };
 
 const IndexPage = ({ data }) => {
@@ -86,11 +40,7 @@ const IndexPage = ({ data }) => {
         image2={frontmatter.image2}
         image3={frontmatter.image3}
         title={frontmatter.title}
-        heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   );
@@ -134,25 +84,6 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }
