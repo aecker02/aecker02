@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
 import Container from "../Container";
-import logo from "../../../img/logo.svg";
+import logo from "../../../img/dummy-logo.png";
+
+import './styles.scss';
 
 const Header = class extends React.Component {
   constructor(props) {
@@ -13,14 +15,11 @@ const Header = class extends React.Component {
   }
 
   toggleHamburger = () => {
-    // toggle the active boolean in the state
     this.setState(
       {
         active: !this.state.active
       },
-      // after state has been updated,
       () => {
-        // set the class in state for the navbar accordingly
         this.state.active
           ? this.setState({
               navBarActiveClass: "is-active"
@@ -40,11 +39,10 @@ const Header = class extends React.Component {
         aria-label="main-navigation"
       >
         <Container>
-          <div className="navbar-brand">
+          <div className="navbar-brand navbar__brand">
             <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: "88px" }} />
+              <img src={logo} alt="Alans" className="navbar__logo" />
             </Link>
-            {/* Hamburger menu */}
             <div
               className={`navbar-burger burger ${this.state.navBarActiveClass}`}
               data-target="navMenu"
@@ -57,7 +55,7 @@ const Header = class extends React.Component {
           </div>
           <div
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`navbar__menu navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/about">
