@@ -1,0 +1,9 @@
+@mixin heroBannerHeadings($mobileFontSize, $desktopFontSize, $fontWeight) {
+  font-family: $titleFont;
+  font-weight: $fontWeight;
+  font-size: $mobileFontSize;
+
+  @media (min-width: 768px) {
+    font-size: $desktopFontSize;
+  }
+}

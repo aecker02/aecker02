@@ -1,42 +1,44 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import React, { useState } from "react"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = () => {
+  const [navOpen, setNavOpen] = useState(false)
+  
+  return (
+    <header className={`header ${navOpen ? "nav-open" : ""}`}>
+      <div className="header__container">
+        <img
+          className="header__logo"
+          src={'https://placeholder.com/wp-content/uploads/2018/10/placeholder.com-logo2.png'}
+          alt="Chauffeur Services London"
+        />
+        <div className="header__burger" onClick={() => setNavOpen(!navOpen)}>
+          <span className="header__burger--line"></span>
+          <span className="header__burger--line"></span>
+          <span className="header__burger--line"></span>
+        </div>
+      </div>
+      <nav className="header__nav">
+        <ul>
+          <li className="header__nav--item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="header__nav--item">
+            <Link to="/about">About</Link>
+          </li>
+          <li className="header__nav--item">
+            <Link to="/services">Services</Link>
+          </li>
+           <li className="header__nav--item">
+            <Link to="/quote">Get a Quote</Link>
+          </li>
+          <li className="header__nav--item">
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  )
 }
 
 export default Header
