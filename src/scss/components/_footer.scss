@@ -1,0 +1,130 @@
+.footer {
+  background-color: $color-primary;
+  color: $color-tertiary;
+  padding: 20px;
+
+  &__inner {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (min-width: $laptop) {
+      max-width: 1200px;
+    }
+  }
+
+  &__column {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @media (min-width: $laptop) {
+      width: 25%;
+    }
+  }
+
+  &__logo {
+
+  }
+
+  &__nav {
+    &-list {
+      list-style-type: none;
+    }
+
+    &-item {
+      margin-bottom: 10px;
+      text-align: center;
+
+      @media (min-width: $laptop) {
+        text-align: left;
+      }
+
+      & a {
+        text-decoration: none;
+        color: $color-tertiary;
+
+        &:hover {
+          color: $color-secondary-50;
+        }
+      }
+    }
+  }
+
+  &__contact {
+    text-align: left;
+    align-items: center;
+    padding-right: 10px;
+
+    @media (min-width: $laptop) {
+      align-items: flex-start;
+    }
+
+    &--gold {
+      display: inline-block;
+      color: $color-secondary;
+      min-width: 80px;
+      text-align: right;
+      margin-right: 10px;
+    }
+  }
+
+  &__contact-divider {
+    display: flex;
+  }
+
+  &__contact-item {
+    margin-bottom: 10px;
+  }
+
+
+
+  &__social {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    svg {
+      font-size: 2rem;
+      margin: 0 10px 20px;
+
+      @media (min-width: $laptop) {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        fill: $color-secondary;
+      }
+    }
+  }
+
+  &__social-cta {
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: rgba($color-secondary, 1);
+    text-decoration: none;
+    color: $color-tertiary;
+    min-width: 150px;
+    max-width: 300px;
+    width:90%;
+    text-transform: uppercase;
+    text-align: center;
+
+    
+
+    &:hover {
+      background-color: rgba($color-secondary, 0.75);
+    }
+  }
+
+  hr {
+    width: 100%;
+    border-color: $color-secondary;
+    margin: 25px 0;
+  }
+}

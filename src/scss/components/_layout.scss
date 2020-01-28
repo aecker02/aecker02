@@ -4,17 +4,7 @@
   padding: 0;
 }
 
-p {
+a, p, span {
   font-family: $copyFont;
-  font-size: 0.9rem;
-
-  @media (min-width: 768px){
-    font-size: 1rem;
-  }
-}
-
-main {
-  @media (min-width: 768px){
-    padding-top: 62px;
-  }
+  font-size: 0.85rem;
 }

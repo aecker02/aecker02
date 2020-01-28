@@ -1,15 +1,43 @@
 .header {
   position: relative;
+  background-color: #eeeeee;
+
   &__container {
     position: relative;
     display: flex;
-    justify-content: center;
-    background-color: #eeeeee;
+    justify-content: space-between;
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__inner {
+    display: flex;
   }
 
   &__logo {
     max-width: 120px;
+  }
+
+  &__cta {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: rgba($color-secondary, 1);
+    text-decoration: none;
+    color: $color-tertiary;
+    min-width: 150px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: rgba($color-secondary, 0.75);
+    }
+
+    @media (min-width: 990px){
+      display: flex;
+      margin-left: 25px;
+    }
   }
 
   &__burger {
@@ -26,7 +54,7 @@
 
     &--line {
       position: relative;
-      background-color: #ffffff;
+      background-color: $color-primary;
       width: 40px;
       height: 4px;
       margin-top: 4px;
@@ -46,7 +74,7 @@
           &::before {
             content: "";
             position: absolute;
-            background-color: #ffffff;
+            background-color: $color-primary;
             width: 40px;
             height: 4px;
             transform: rotate(-90deg);
@@ -59,7 +87,8 @@
   }
 
   &__nav {
-    background-color: #232323;
+    background-color: $color-primary;
+    width: 100%;
     max-height: 0;
     overflow: hidden;
 
@@ -69,25 +98,22 @@
     }
 
     @media (min-width: 768px) {
-      background-color: rgba(35, 35, 35, 0.75);
-      position: absolute;
-      top: 100%;
-      width: 100%;
-      left: 0;
-      right: 0;
+      background-color: transparent;
       max-height: 80px;
-      z-index: 5;
     }
 
     ul {
+      padding-top: 10px;
       padding-bottom: 10px;
       list-style-type: none;
 
       @media (min-width: 768px) {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         padding-bottom: 0;
+        max-width: 1200px;
+        margin: 0 auto;
       }
     }
 
@@ -95,7 +121,7 @@
       text-align: center;
 
       &:hover {
-        background-color: #bda360;
+        background-color: $color-secondary-50;
 
         @media (min-width: 768px) {
           background-color: unset;
@@ -105,15 +131,18 @@
       a {
         position: relative;
         display: block;
-        color: #ffffff;
+        color: $color-tertiary;
         text-decoration: none;
         font-family: $copyFont;
-        font-size: 1rem;
+        font-size: 0.85rem;
         padding: 10px;
+        text-transform: uppercase;
 
         @media (min-width: 768px) {
           padding: 20px 25px 10px;
           margin-bottom: 10px;
+          color: $color-primary;
+
           &:after {
             background: none repeat scroll 0 0 transparent;
             bottom: 0;
@@ -122,7 +151,7 @@
             height: 2px;
             left: 50%;
             position: absolute;
-            background: #bda360;
+            background: $color-secondary;
             transition: width 0.3s ease 0s, left 0.3s ease 0s;
             width: 0;
           }

@@ -1,6 +1,16 @@
 //Fonts
-
 $titleFont: 'Bebas Neue', cursive;
 $copyFont: 'Open Sans', sans-serif;
 
 //Colors
+$color-primary: #18232D;
+$color-secondary: #B2904D;
+$color-secondary-50: rgba(#B2904D, 0.50);
+$color-tertiary: #FCFCFC;
+
+//Breakpoints
+$mobile: 320px;
+$phablet: 544px;
+$tablet: 768px;
+$laptop: 990px;
+$desktop: 1200px;
