@@ -41,13 +41,10 @@ const RenderNav = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="header__nav--item">
-          <Link to="/about">About</Link>
+          <Link to="/materials">Materials</Link>
         </li>
         <li className="header__nav--item">
           <Link to="/services">Services</Link>
-        </li>
-        <li className="header__nav--item">
-          <Link to="/quote">Get a Quote</Link>
         </li>
         <li className="header__nav--item">
           <Link to="/contact">Contact</Link>

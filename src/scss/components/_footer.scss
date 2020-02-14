@@ -1,7 +1,7 @@
 .footer {
   background-color: $color-primary;
   color: $color-tertiary;
-  padding: 20px;
+  padding: 45px 20px 20px;
 
   &__inner {
     max-width: 400px;
@@ -23,6 +23,7 @@
 
     @media (min-width: $laptop) {
       width: 25%;
+      margin-bottom: 0;
     }
   }
 

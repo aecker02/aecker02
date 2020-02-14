@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Stone`,
@@ -40,6 +42,19 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: 'gatsby-source-prismic-graphql',
+        options: {
+          repositoryName: 'stone-compare',
+          accessToken: process.env.PRISMIC_API_KEY
+        //   pages: [{ // (optional, builds pages dynamically)
+        //   type: 'Article',         // TypeName from prismic
+        //   match: '/article/:uid',  // Pages will be generated under this pattern
+        //   path: '/article',        // Placeholder page for unpublished documents
+        //   component: require.resolve('./src/templates/article.js'),
+        // }],
+      }
     }
   ],
 }

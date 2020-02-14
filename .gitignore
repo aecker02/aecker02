@@ -8,3 +8,5 @@ public/
 # Mac files
 .DS_Store
 
+# ENV Files
+.env
