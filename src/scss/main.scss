@@ -1,11 +1,10 @@
 //Setup
-@import './setup/variables';
-@import './setup/mixins';
-
+@import "./setup/variables";
+@import "./setup/mixins";
 
 //Components
-@import './components/layout';
-@import './components/header';
-@import './components/hero_slider';
-@import './components/footer';
-
+@import "./components/layout";
+@import "./components/header";
+@import "./components/hero_slider";
+@import "./components/footer";
+@import "./components/breadcrumb";
