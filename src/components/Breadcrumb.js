@@ -6,11 +6,16 @@ const Breadcrumb = ({ currentPage, isMaterial, parentPage }) => {
   return (
     <nav className="breadcrumb">
       <ul className="breadcrumb__inner">
-        <li>
-          <Link className="breadcrumb__item" to="/">
-            Home
-          </Link>
-        </li>
+        {!currentPage ? (
+          <li className="breadcrumb__item breadcrumb__item--current">Home</li>
+        ) : (
+          <li>
+            <Link className="breadcrumb__item" to="/">
+              Home
+            </Link>
+          </li>
+        )}
+
         {isMaterial && (
           <li>
             <Link className="breadcrumb__item" to={`/materials`}>
@@ -25,9 +30,11 @@ const Breadcrumb = ({ currentPage, isMaterial, parentPage }) => {
             </Link>
           </li>
         )}
-        <li className="breadcrumb__item breadcrumb__item--current">
-          {toTitleCase(currentPage)}
-        </li>
+        {currentPage && (
+          <li className="breadcrumb__item breadcrumb__item--current">
+            {toTitleCase(currentPage)}
+          </li>
+        )}
       </ul>
     </nav>
   );

@@ -2,9 +2,13 @@
 @import "./setup/variables";
 @import "./setup/mixins";
 
+//Pages
+@import "./pages/materials_page";
+
 //Components
 @import "./components/layout";
 @import "./components/header";
 @import "./components/hero_slider";
 @import "./components/footer";
 @import "./components/breadcrumb";
+@import "./components/material-card";
