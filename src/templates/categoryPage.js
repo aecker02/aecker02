@@ -15,7 +15,7 @@ const CategoryPage = ({pageContext}) => {
       <h1>{title}</h1>
       {material.map(mat => {
         return (
-          <a href={`/${toLowerKebabCase(mat.category)}/${toLowerKebabCase(mat.name)}`}>
+          <a key={mat.name} href={`/${toLowerKebabCase(mat.category)}/${toLowerKebabCase(mat.name)}`}>
             <h2>{mat.name}</h2>
             <Img fluid={mat.imageSharp.childImageSharp.fluid} style={{width: 300}}/>
             <h3>{mat.origin_country}</h3>

@@ -34,6 +34,20 @@ const Header = ({ breakpoints, currentBreakpoint }) => {
 }
 
 const RenderNav = () => {
+  const data = useStaticQuery(graphql`
+    query NavMaterialItems {
+      prismic {
+        allMaterialss {
+          edges {
+            node {
+              title
+            }
+          }
+        }
+      }
+    }
+  `)
+  console.log(data)
   return (
     <nav className="header__nav">
       <ul>
