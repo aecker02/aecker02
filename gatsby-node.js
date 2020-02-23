@@ -3,8 +3,8 @@ const { toLowerKebabCase } = require("./src/utils/helpers");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  const materialPageTemplate = path.resolve(`src/templates/materialPage.js`);
-  const categoryPageTemplate = path.resolve(`src/templates/categoryPage.js`);
+  const materialPageTemplate = path.resolve(`src/templates/MaterialPage.js`);
+  const categoryPageTemplate = path.resolve(`src/templates/CategoryPage.js`);
 
   return graphql(
     `
