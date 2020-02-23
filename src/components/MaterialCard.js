@@ -5,7 +5,6 @@ import { linkResolver } from "../utils/linkResolver";
 import { toLowerKebabCase } from "../utils/helpers";
 
 const MaterialCard = ({ material, title, description }) => {
-  console.log(material, title);
   return (
     <Link
       to={`/materials/${toLowerKebabCase(title)}`}
