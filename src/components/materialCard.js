@@ -17,12 +17,7 @@ const MaterialCard = ({ material, title, description }) => {
       ></div>
       <div className="material-card__content">
         {RichText.render(description, linkResolver)}
-        <Link
-          to={`/materials/${toLowerKebabCase(title)}`}
-          className="material-card__cta"
-        >
-          Find out more
-        </Link>
+        <button className="material-card__cta">Find out more</button>
       </div>
     </Link>
   );

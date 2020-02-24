@@ -14,7 +14,7 @@ const MaterialsPage = ({ data }) => {
       <Breadcrumb currentPage="materials" />
       <div className="materials-page__inner">
         {materials.map(material => (
-          <MaterialCard {...material.node} />
+          <MaterialCard key={material.node.title} {...material.node} />
         ))}
       </div>
     </Layout>
