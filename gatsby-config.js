@@ -1,5 +1,4 @@
 require("dotenv").config();
-console.log("DIRNAME", __dirname);
 module.exports = {
   siteMetadata: {
     title: `Stone`,

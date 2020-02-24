@@ -1,0 +1,14 @@
+.material-page {
+  &__title {
+    text-align: center;
+    font-family: $titleFont;
+    font-size: 4rem;
+    margin: 20px 0;
+  }
+
+  &__image {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+  }
+}

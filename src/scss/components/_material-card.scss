@@ -3,6 +3,7 @@
   flex-direction: column;
   text-decoration: none;
   color: $color-primary;
+  width: 100%;
   max-width: 320px;
   margin: 20px;
   border-radius: 4px;
@@ -32,6 +33,10 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+
+    p {
+      margin-bottom: 20px;
+    }
   }
 
   &__cta {
@@ -39,7 +44,7 @@
     height: 40px;
     width: 200px;
     padding: 10px 20px;
-    margin: 20px auto 0;
+    margin: 0 auto;
     background-color: rgba($color-secondary, 1);
     text-decoration: none;
     color: $color-tertiary;

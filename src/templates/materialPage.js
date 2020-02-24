@@ -6,17 +6,20 @@ import Breadcrumb from "../components/breadcrumb";
 import { toLowerKebabCase } from "../utils/helpers";
 
 const MaterialsPage = ({ pageContext }) => {
-  const { name, category, color, imageSharp, origin_country } = pageContext;
+  const { name, category, color, image, origin_country } = pageContext;
   return (
-    <Layout>
+    <Layout customClass="material-page">
       <SEO title={`${name} | ${category}`} />
       <Breadcrumb
         parentPage={toLowerKebabCase(category)}
         isMaterial={true}
         currentPage={toLowerKebabCase(name)}
       />
-      <h1>{name}</h1>
-      <Img fluid={imageSharp.childImageSharp.fluid} style={{ width: 300 }} />
+      <h1 className="material-page__title">{name}</h1>
+      <div
+        className="material-page__image"
+        style={{ backgroundImage: `url(${image.url})` }}
+      ></div>
       <h2>{category}</h2>
       <h2>{color}</h2>
       <h2>{origin_country}</h2>

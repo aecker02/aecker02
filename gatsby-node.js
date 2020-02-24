@@ -14,6 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
             edges {
               node {
                 title
+                description
                 material {
                   category
                   color

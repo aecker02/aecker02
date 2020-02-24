@@ -5630,7 +5630,7 @@ gatsby-source-graphql@^2.0.15, gatsby-source-graphql@^2.0.8:
     node-fetch "^1.7.3"
     uuid "^3.3.3"
 
-gatsby-source-prismic-graphql@@3.4.0-beta.1:
+gatsby-source-prismic-graphql@3.4.0-beta.1:
   version "3.4.0-beta.1"
   resolved "https://registry.yarnpkg.com/gatsby-source-prismic-graphql/-/gatsby-source-prismic-graphql-3.4.0-beta.1.tgz#e07f9c5f0dc9a1ad3ec1e88d9d2c633c6d665ccc"
   integrity sha512-/OfYCeUkEV2SB6IS77vsBVk0ztS6gYTCw5Fboj1m4ey4j80BYZ7Q4m+Q2aTbcX6R36luT6eyTlNZ4DejdHTAPQ==
@@ -10211,7 +10211,7 @@ react-hot-loader@^4.12.18:
     shallowequal "^1.1.0"
     source-map "^0.7.3"
 
-react-icons@^3.8.0:
+react-icons@^3.9.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.9.0.tgz#89a00f20a0e02e6bfd899977eaf46eb4624239d5"
   integrity sha512-gKbYKR+4QsD3PmIHLAM9TDDpnaTsr3XZeK1NTAb6WQQ+gxEdJ0xuCgLq0pxXdS7Utg2AIpcVhM1ut/jlDhcyNg==
