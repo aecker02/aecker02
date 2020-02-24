@@ -1,8 +1,8 @@
 import React from "react";
 import Img from "gatsby-image";
-import Layout from "../components/Layout";
-import SEO from "../components/Seo";
-import Breadcrumb from "../components/Breadcrumb";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Breadcrumb from "../components/breadcrumb";
 import { toLowerKebabCase } from "../utils/helpers";
 
 const CategoryPage = ({ pageContext }) => {

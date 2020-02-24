@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/Layout";
-import SEO from "../components/Seo";
-import Breadcrumb from "../components/Breadcrumb";
-import MaterialCard from "../components/MaterialCard";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import Breadcrumb from "../components/breadcrumb";
+import MaterialCard from "../components/materialCard";
 
 const MaterialsPage = ({ data }) => {
   const materials = data.prismic.allMaterialss.edges;
