@@ -1,0 +1,55 @@
+.material-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: $color-primary;
+  max-width: 320px;
+  margin: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(#000000, 0.25);
+
+  &__title {
+    width: 100%;
+    text-align: center;
+    background-color: $color-primary;
+    padding: 10px 20px;
+    color: $color-tertiary;
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  &__cta {
+    display: block;
+    height: 40px;
+    width: 200px;
+    padding: 10px 20px;
+    margin: 20px auto 0;
+    background-color: rgba($color-secondary, 1);
+    text-decoration: none;
+    color: $color-tertiary;
+    min-width: 150px;
+    max-width: 300px;
+    text-transform: uppercase;
+    text-align: center;
+
+    &:hover {
+      background-color: rgba($color-secondary, 0.75);
+    }
+  }
+}

@@ -1,10 +1,22 @@
 //Setup
 @import "./setup/variables";
 @import "./setup/mixins";
+<<<<<<< HEAD
+=======
+
+//Pages
+@import "./pages/materials_page";
+>>>>>>> master
 
 //Components
 @import "./components/layout";
 @import "./components/header";
 @import "./components/hero_slider";
+<<<<<<< HEAD
 @import "./components/featured";
 @import "./components/footer";
+=======
+@import "./components/footer";
+@import "./components/breadcrumb";
+@import "./components/material-card";
+>>>>>>> master

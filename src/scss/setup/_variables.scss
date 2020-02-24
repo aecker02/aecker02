@@ -1,12 +1,13 @@
 //Fonts
-$titleFont: 'Bebas Neue', cursive;
-$copyFont: 'Open Sans', sans-serif;
+$titleFont: "Bebas Neue", cursive;
+$copyFont: "Open Sans", sans-serif;
 
 //Colors
-$color-primary: #18232D;
-$color-secondary: #B2904D;
-$color-secondary-50: rgba(#B2904D, 0.50);
-$color-tertiary: #FCFCFC;
+$color-primary: #18232d;
+$color-primary-90: rgba($color-primary, 0.9);
+$color-secondary: #b2904d;
+$color-secondary-50: rgba(#b2904d, 0.5);
+$color-tertiary: #fcfcfc;
 
 //Breakpoints
 $mobile: 320px;

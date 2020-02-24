@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
-import ReactBreakpoints from 'react-breakpoints'
-import "../scss/main.scss"
+import React from "react";
+import PropTypes from "prop-types";
+import ReactBreakpoints from "react-breakpoints";
+import "../scss/main.scss";
 
-import Header from './Header'
-import Footer from './Footer'
- 
+import Header from "./Header";
+import Footer from "./Footer";
+
 const breakpoints = {
   mobile: 320,
   mobileLandscape: 480,
@@ -13,21 +13,21 @@ const breakpoints = {
   tabletLandscape: 990,
   desktop: 1200,
   desktopLarge: 1500,
-  desktopWide: 1920,
-}
+  desktopWide: 1920
+};
 
-const Layout = ({ children }) => {
+const Layout = ({ children, customClass }) => {
   return (
     <ReactBreakpoints breakpoints={breakpoints}>
       <Header />
-      <main>{children}</main>
+      <main className={customClass}>{children}</main>
       <Footer />
     </ReactBreakpoints>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+  children: PropTypes.node.isRequired
+};
 
-export default Layout
+export default Layout;

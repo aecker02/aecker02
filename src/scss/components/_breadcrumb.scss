@@ -1,0 +1,40 @@
+.breadcrumb {
+  background-color: $color-primary;
+  &__inner {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    list-style-type: none;
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 10px;
+    text-decoration: none;
+    color: $color-tertiary;
+    font-family: $copyFont;
+    font-size: 0.9rem;
+    line-height: 1.2;
+
+    &:hover {
+      color: $color-secondary;
+
+      &::after {
+        color: $color-tertiary;
+      }
+    }
+
+    &::after {
+      content: "/";
+      margin-left: 10px;
+    }
+
+    &--current {
+      color: $color-secondary;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

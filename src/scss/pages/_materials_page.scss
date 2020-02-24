@@ -1,0 +1,10 @@
+.materials-page {
+  &__inner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+}

@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import SEO from "../components/Seo";
 import HeroSlider from "../components/HeroSlider";
 import FeaturedMaterials from "../components/Featured";
+import Breadcrumb from "../components/Breadcrumb";
 
 const sliderProps = {
   title: "Title",
@@ -42,6 +43,7 @@ const IndexPage = () => (
     <div className="container">
       <FeaturedMaterials items={mockFeaturedItems} />
     </div>
+    <Breadcrumb />
   </Layout>
 );
 

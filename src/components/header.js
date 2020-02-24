@@ -1,24 +1,25 @@
-import { Link, graphql, useStaticQuery } from "gatsby"
-import React, { useState } from "react"
-import { withBreakpoints } from 'react-breakpoints'
+import { Link, graphql, useStaticQuery } from "gatsby";
+import React, { useState } from "react";
+import { withBreakpoints } from "react-breakpoints";
 
 const Header = ({ breakpoints, currentBreakpoint }) => {
   const [navOpen, setNavOpen] = useState(false);
 
-  
   return (
     <header className={`header ${navOpen ? "nav-open" : ""}`}>
       <div className="header__container">
         <img
           className="header__logo"
-          src={'http://acmelogos.com/images/logo-8.svg'}
+          src={"http://acmelogos.com/images/logo-8.svg"}
           alt="Chauffeur Services London"
         />
         <div className="header__inner">
           {breakpoints[currentBreakpoint] >= breakpoints.tablet ? (
             <RenderNav />
           ) : null}
-          <a className="header__cta" href="/get-a-quote">Get a Quote</a>
+          <a className="header__cta" href="/get-a-quote">
+            Get a Quote
+          </a>
         </div>
         <div className="header__burger" onClick={() => setNavOpen(!navOpen)}>
           <span className="header__burger--line"></span>
@@ -26,14 +27,27 @@ const Header = ({ breakpoints, currentBreakpoint }) => {
           <span className="header__burger--line"></span>
         </div>
       </div>
-        {breakpoints[currentBreakpoint] < breakpoints.tablet ? (
-            <RenderNav />
-          ) : null}
+      {breakpoints[currentBreakpoint] < breakpoints.tablet ? (
+        <RenderNav />
+      ) : null}
     </header>
-  )
-}
+  );
+};
 
 const RenderNav = () => {
+  const data = useStaticQuery(graphql`
+    query NavMaterialItems {
+      prismic {
+        allMaterialss {
+          edges {
+            node {
+              title
+            }
+          }
+        }
+      }
+    }
+  `);
   return (
     <nav className="header__nav">
       <ul>
@@ -51,7 +65,7 @@ const RenderNav = () => {
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default withBreakpoints(Header)
+export default withBreakpoints(Header);
