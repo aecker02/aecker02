@@ -17,9 +17,9 @@ const CategoryPage = ({ pageContext }) => {
         return (
           <a
             key={mat.name}
-            href={`/${toLowerKebabCase(mat.category)}/${toLowerKebabCase(
-              mat.name
-            )}`}
+            href={`/materials/${toLowerKebabCase(
+              mat.category
+            )}/${toLowerKebabCase(mat.name)}`}
           >
             <h2>{mat.name}</h2>
             <Img
