@@ -1,9 +1,9 @@
 import React from "react";
 
-import Layout from "../components/Layout";
-import SEO from "../components/Seo";
-import HeroSlider from "../components/HeroSlider";
-import Breadcrumb from "../components/Breadcrumb";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
+import HeroSlider from "../components/heroSlider";
+import Breadcrumb from "../components/breadcrumb";
 
 const sliderProps = {
   title: "Title",
