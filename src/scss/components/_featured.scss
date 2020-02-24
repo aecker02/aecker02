@@ -1,0 +1,27 @@
+.featured-section {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: $tablet) {
+    justify-content: space-between;
+  }
+
+  a {
+    min-width: 100% !important;
+    @extend .footer__social-cta;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin: 16px 0;
+    padding: 16px;
+    border: solid 1px grey;
+
+    @media (min-width: $tablet) {
+      width: 30%;
+    }
+  }
+}
