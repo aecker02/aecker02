@@ -11,7 +11,7 @@ const Item = ({
 }) => {
   const parentMaterial = material_parent.title.toLowerCase();
   const materialTitle = featured_material_title[0].text;
-  const link = `/${slugify(parentMaterial)}/${slugify(
+  const link = `materials/${slugify(parentMaterial)}/${slugify(
     materialTitle.toLowerCase()
   )}`;
 
