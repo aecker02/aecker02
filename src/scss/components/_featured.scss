@@ -1,14 +1,29 @@
 .featured-section {
   display: flex;
   flex-wrap: wrap;
+  font-family: "Bebas Neue", cursive;
 
-  @media (min-width: $tablet) {
+  @media (min-width: $phablet) {
     justify-content: space-between;
   }
 
+  .gatsby-image-wrapper {
+    height: 100%;
+    // margin-top: 16px;
+    // border-radius: 4px;
+  }
+
   a {
-    min-width: 100% !important;
+    width: 200px;
+    min-width: 300px;
     @extend .footer__social-cta;
+    margin: 20px auto;
+  }
+
+  &__title {
+    @extend .material-card__title;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
   }
 
   &__item {
@@ -16,11 +31,14 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    height: 400px;
     margin: 16px 0;
-    padding: 16px;
-    border: solid 1px grey;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    // padding: 16px;
+    // border: solid 1px grey;
 
-    @media (min-width: $tablet) {
+    @media (min-width: $phablet) {
       width: 30%;
     }
   }

@@ -41,7 +41,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <HeroSlider {...sliderProps} />
     <div className="container">
-      <FeaturedMaterials items={mockFeaturedItems} />
+      <FeaturedMaterials />
     </div>
     <Breadcrumb />
   </Layout>

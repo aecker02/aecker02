@@ -2,35 +2,46 @@ import React from "react";
 import { Link } from "gatsby";
 import Image from "gatsby-image";
 import PropTypes from "prop-types";
+import slugify from "slugify";
+import { useFeaturedMaterials } from "./Featured/featured.hooks";
 
-const Item = ({ title, description, link, linkText }) => {
+const Item = ({
+  featured_material_title,
+  material_parent,
+  material_imageSharp
+}) => {
+  const parentMaterial = material_parent.title.toLowerCase();
+  const materialTitle = featured_material_title[0].text;
+  const link = `/${slugify(parentMaterial)}/${slugify(
+    materialTitle.toLowerCase()
+  )}`;
+
   return (
     <div className="featured-section__item">
-      <h3>{title}</h3>
-      {description && <p>{description}</p>}
-      <Link to={link}>{linkText}</Link>
+      <h3 className="featured-section__title">{materialTitle}</h3>
+      <Image fluid={material_imageSharp.childImageSharp.fluid} />
+      <Link to={link}>Find out more</Link>
     </div>
   );
 };
 
-const Featured = ({ items }) => {
+const Featured = () => {
+  const featuredMaterials = useFeaturedMaterials();
+
   return (
     <div className="featured-section">
-      {items.length &&
-        items.map((item, index) => <Item key={`item-${index}`} {...item} />)}
+      {featuredMaterials.length &&
+        featuredMaterials.map((material, index) => (
+          <Item key={`item-${index}`} {...material} />
+        ))}
     </div>
   );
-};
-
-Featured.propTypes = {
-  items: PropTypes.array
 };
 
 Item.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  link: PropTypes.string,
-  linkText: PropTypes.string
+  featured_material_title: PropTypes.array.isRequired,
+  material_parent: PropTypes.object.isRequired,
+  material_image: PropTypes.object.isRequired
 };
 
 export default Featured;
