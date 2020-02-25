@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import Image from "gatsby-image";
 import PropTypes from "prop-types";
 import slugify from "slugify";
-import { useFeaturedMaterials } from "./Featured/featured.hooks";
 
 const Item = ({
   featured_material_title,
@@ -25,9 +24,7 @@ const Item = ({
   );
 };
 
-const Featured = () => {
-  const featuredMaterials = useFeaturedMaterials();
-
+const Featured = ({ featuredMaterials }) => {
   return (
     <div className="featured-section">
       {featuredMaterials.length &&
