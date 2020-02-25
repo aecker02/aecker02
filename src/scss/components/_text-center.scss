@@ -1,0 +1,17 @@
+.text-center {
+  padding: 40px 0 10px;
+
+  &__inner {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+
+  &__copy {
+    text-align: center;
+  }
+}

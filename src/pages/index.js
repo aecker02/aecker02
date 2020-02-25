@@ -16,26 +16,6 @@ const sliderProps = {
   ]
 };
 
-const mockFeaturedItems = [
-  {
-    title: "Title 1",
-    description: "Im the description",
-    link: "/about",
-    linkText: "Sandstone"
-  },
-  {
-    title: "Title 2",
-    description: "Im the description",
-    link: "/",
-    linkText: "Granite"
-  },
-  {
-    title: "Title 3",
-    link: "/boo",
-    linkText: "Sandpaper"
-  }
-];
-
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />

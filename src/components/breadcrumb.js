@@ -25,7 +25,7 @@ const Breadcrumb = ({ currentPage, isMaterial, parentPage }) => {
         )}
         {parentPage && (
           <li>
-            <Link className="breadcrumb__item" to={`/${parentPage}`}>
+            <Link className="breadcrumb__item" to={`/materials/${parentPage}`}>
               {toTitleCase(parentPage)}
             </Link>
           </li>

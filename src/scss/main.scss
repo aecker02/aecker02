@@ -4,6 +4,8 @@
 
 //Pages
 @import "./pages/materials_page";
+@import "./pages/category_page";
+@import "./pages/material_page";
 
 //Components
 @import "./components/layout";
@@ -14,3 +16,5 @@
 @import "./components/footer";
 @import "./components/breadcrumb";
 @import "./components/material-card";
+@import "./components/hero";
+@import "./components/text-center";

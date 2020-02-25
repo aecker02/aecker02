@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactBreakpoints from "react-breakpoints";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../scss/main.scss";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./header";
+import Footer from "./footer";
 
 const breakpoints = {
   mobile: 320,

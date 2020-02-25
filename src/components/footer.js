@@ -1,10 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import { Link } from "gatsby";
 
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 
-import { FaTwitter, FaInstagram, FaFacebook  } from "react-icons/fa";
-
+import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 
 const Footer = ({ children }) => {
   return (
@@ -13,7 +12,7 @@ const Footer = ({ children }) => {
         <div className="footer__column footer__logo">
           <img
             className="footer__logo"
-            src={'http://acmelogos.com/images/logo-8.svg'}
+            src={"http://acmelogos.com/images/logo-8.svg"}
             alt="Chauffeur Services London"
           />
         </div>
@@ -39,24 +38,35 @@ const Footer = ({ children }) => {
           </nav>
         </div>
         <div className="footer__column footer__contact">
-          <div className="footer__contact-divider"><span className="footer__contact--gold">Telephone: </span><a className="footer__contact-item">0657466456464</a></div>
-          <div className="footer__contact-divider"><span className="footer__contact--gold">E-mail: </span><a className="footer__contact-item">test@test.com</a></div>
-          <div className="footer__contact-divider"><span className="footer__contact--gold">Address: </span><p className="footer__contact-item">123 Road Road, Manchester, UK, M1 3RD</p></div>
+          <div className="footer__contact-divider">
+            <span className="footer__contact--gold">Telephone: </span>
+            <a className="footer__contact-item">0657466456464</a>
+          </div>
+          <div className="footer__contact-divider">
+            <span className="footer__contact--gold">E-mail: </span>
+            <a className="footer__contact-item">test@test.com</a>
+          </div>
+          <div className="footer__contact-divider">
+            <span className="footer__contact--gold">Address: </span>
+            <p className="footer__contact-item">
+              123 Road Road, Manchester, UK, M1 3RD
+            </p>
+          </div>
         </div>
         <div className="footer__column footer__social">
           <FaTwitter />
           <FaFacebook />
           <FaInstagram />
-          <a className="footer__social-cta" href="/get-a-quote">Get a Quote</a>
+          <a className="footer__social-cta" href="/get-a-quote">
+            Get a Quote
+          </a>
         </div>
         <hr />
       </div>
     </footer>
-  )
-}
+  );
+};
 
-Footer.propTypes = {
-  
-}
+Footer.propTypes = {};
 
-export default Footer
+export default Footer;

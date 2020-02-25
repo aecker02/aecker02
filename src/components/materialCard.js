@@ -4,25 +4,22 @@ import { RichText, Date } from "prismic-reactjs";
 import { linkResolver } from "../utils/linkResolver";
 import { toLowerKebabCase } from "../utils/helpers";
 
-const MaterialCard = ({ material, title, description }) => {
+const MaterialCard = ({ imageUrl, title, description, customLink }) => {
   return (
     <Link
-      to={`/materials/${toLowerKebabCase(title)}`}
+      to={`/materials/${customLink ? customLink + "/" : ""}${toLowerKebabCase(
+        title
+      )}`}
       className="material-card"
     >
       <h2 className="material-card__title">{title}</h2>
       <div
         className="material-card__image"
-        style={{ backgroundImage: `url(${material[0].image.url})` }}
+        style={{ backgroundImage: `url(${imageUrl})` }}
       ></div>
       <div className="material-card__content">
         {RichText.render(description, linkResolver)}
-        <Link
-          to={`/materials/${toLowerKebabCase(title)}`}
-          className="material-card__cta"
-        >
-          Find out more
-        </Link>
+        <button className="material-card__cta">Find out more</button>
       </div>
     </Link>
   );

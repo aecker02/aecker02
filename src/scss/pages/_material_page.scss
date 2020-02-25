@@ -1,0 +1,63 @@
+.material-page {
+  &__title {
+    text-align: center;
+    font-family: $titleFont;
+    font-size: 4rem;
+    margin: 20px 0;
+  }
+
+  &__image {
+    height: 300px;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  &__information {
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+
+    svg {
+      height: 30px;
+      width: 30px;
+      margin-bottom: 10px;
+      fill: $color-secondary;
+    }
+
+    h2 {
+      font-family: $titleFont;
+    }
+  }
+
+  //Form Styles
+  &__enquiry {
+    color: $color-tertiary;
+    background-color: $color-primary;
+    max-width: 768px;
+    padding: 20px;
+    margin: 0 auto 40px;
+  }
+
+  &__enquiry-title {
+    font-family: $copyFont;
+    color: $color-tertiary;
+  }
+
+  &__form-submit {
+    background-color: $color-secondary !important;
+    border-color: $color-secondary !important;
+
+    &:hover {
+      background-color: $color-secondary-50 !important;
+    }
+  }
+}
