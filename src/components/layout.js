@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactBreakpoints from "react-breakpoints";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../scss/main.scss";
 
 import Header from "./header";
