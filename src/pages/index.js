@@ -20,10 +20,10 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <HeroSlider {...sliderProps} />
+    <Breadcrumb />
     <div className="container">
       <FeaturedMaterials />
     </div>
-    <Breadcrumb />
   </Layout>
 );
 

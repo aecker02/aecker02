@@ -9,6 +9,10 @@ p,
 span {
   font-family: $copyFont;
   font-size: 0.85rem;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .container {

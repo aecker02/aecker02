@@ -17,9 +17,6 @@ const Header = ({ breakpoints, currentBreakpoint }) => {
           {breakpoints[currentBreakpoint] >= breakpoints.tablet ? (
             <RenderNav />
           ) : null}
-          <a className="header__cta" href="/get-a-quote">
-            Get a Quote
-          </a>
         </div>
         <div className="header__burger" onClick={() => setNavOpen(!navOpen)}>
           <span className="header__burger--line"></span>

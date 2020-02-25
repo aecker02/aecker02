@@ -57,9 +57,6 @@ const Footer = ({ children }) => {
           <FaTwitter />
           <FaFacebook />
           <FaInstagram />
-          <a className="footer__social-cta" href="/get-a-quote">
-            Get a Quote
-          </a>
         </div>
         <hr />
       </div>
