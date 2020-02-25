@@ -1,9 +1,10 @@
 import React from "react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import HeroSlider from "../components/heroSlider";
-import Breadcrumb from "../components/breadcrumb";
+import Layout from "../components/Layout";
+import SEO from "../components/Seo";
+import HeroSlider from "../components/HeroSlider";
+import FeaturedMaterials from "../components/Featured";
+import Breadcrumb from "../components/Breadcrumb";
 
 const sliderProps = {
   title: "Title",
@@ -19,6 +20,9 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <HeroSlider {...sliderProps} />
+    <div className="container">
+      <FeaturedMaterials />
+    </div>
     <Breadcrumb />
   </Layout>
 );

@@ -4,7 +4,15 @@
   padding: 0;
 }
 
-a, p, span {
+a,
+p,
+span {
   font-family: $copyFont;
   font-size: 0.85rem;
+}
+
+.container {
+  max-width: $desktop;
+  padding: 20px;
+  margin: 0 auto;
 }
