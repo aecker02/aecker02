@@ -1,5 +1,9 @@
-# Node modules
+# Serverless directories
+.serverless
+
+# package directories
 node_modules
+jspm_packages
 
 # Build Files
 public/
