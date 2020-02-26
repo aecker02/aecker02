@@ -12,13 +12,23 @@ const MaterialsPage = ({ pageContext }) => {
   const formRef = useRef(null);
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
+  const [formDimensions, setFormDimensions] = useState([]);
   const [formRegion, setFormRegion] = useState("north");
   const [formResponse, setFormResponse] = useState(null);
 
-  const handleFormSubmit = (e, material) => {
+  const handleFormSubmit = (e, material, category) => {
     e.preventDefault();
+    const dimensionsString = () => {
+      const strings = formDimensions.map(
+        dim => `${dim.width}m x ${dim.length}m \n`
+      );
+      return strings.join().replace(/,/g, "");
+    };
+    console.log(dimensionsString());
     const data = {
+      category: category,
       material: material,
+      dimensions: dimensionsString(),
       name: formName,
       reply_to: formEmail,
       region: formRegion
@@ -43,6 +53,91 @@ const MaterialsPage = ({ pageContext }) => {
         console.error(JSON.parse(response.target.response).message);
       }
     };
+  };
+
+  const addDimension = ({ width, length }) => {
+    const newDimensions = [...formDimensions, { width: width, length: length }];
+    setFormDimensions(newDimensions);
+  };
+
+  const removeDimension = index => {
+    const newDimensions = [...formDimensions];
+    newDimensions.splice(index, 1);
+    setFormDimensions(newDimensions);
+  };
+
+  const renderDimension = (dimension, index, removeDimension) => {
+    return (
+      <div
+        key={index}
+        className="material-page__added-dimension alert alert-light"
+        role="alert"
+      >
+        <span>
+          {dimension.length}m x {dimension.width}m
+        </span>
+        <button
+          className="material-page__delete-dimension btn btn-primary"
+          onClick={() => removeDimension(index)}
+        >
+          -
+        </button>
+      </div>
+    );
+  };
+
+  const DimensionsForm = ({ addDimension }) => {
+    const [length, setLength] = useState("");
+    const [width, setWidth] = useState("");
+
+    const handleSubmit = e => {
+      e.preventDefault();
+      if (!width || !length) return;
+      addDimension({ width: width, length: length });
+      setLength("");
+      setWidth("");
+    };
+
+    return (
+      <div className="material-page__add-dimension">
+        <div className="input-group">
+          <input
+            placeholder="Length"
+            type="text"
+            className="input"
+            value={length}
+            onChange={e => setLength(e.target.value)}
+          />
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">
+              m
+            </span>
+          </div>
+        </div>
+        <div className="input-group">
+          <input
+            placeholder="Width"
+            type="text"
+            className="input"
+            value={width}
+            onChange={e => setWidth(e.target.value)}
+          />
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">
+              m
+            </span>
+          </div>
+        </div>
+
+        <button
+          onClick={handleSubmit}
+          type="submit"
+          className="material-page__submit-dimension btn btn-primary"
+        >
+          +
+        </button>
+      </div>
+    );
   };
 
   return (
@@ -81,10 +176,10 @@ const MaterialsPage = ({ pageContext }) => {
             ref={formRef}
             action="https://5ahkwodbme.execute-api.us-east-1.amazonaws.com/dev/static-site-mailer"
             method="post"
-            onSubmit={e => handleFormSubmit(e, name)}
+            onSubmit={e => handleFormSubmit(e, name, category)}
           >
             <div className="form-group">
-              <label for="name">Name</label>
+              <label htmlFor="name">Name</label>
               <input
                 value={formName}
                 type="text"
@@ -94,22 +189,29 @@ const MaterialsPage = ({ pageContext }) => {
               />
             </div>
             <div className="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label htmlFor="InputEmail">Email address</label>
               <input
                 value={formEmail}
                 type="email"
                 className="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
+                id="InputEmail"
                 onChange={e => setFormEmail(e.target.value)}
               />
             </div>
+            <div className="form-group">
+              <label htmlFor="InputDimensions">Dimensions</label>
+              {formDimensions &&
+                formDimensions.map((dimension, i) =>
+                  renderDimension(dimension, i, removeDimension)
+                )}
+              <DimensionsForm addDimension={addDimension} />
+            </div>
             <div className="form-group mb-4">
-              <label for="exampleFormControlSelect1">Region</label>
+              <label htmlFor="SelectRegion">Region</label>
               <select
                 value={formRegion}
-                class="form-control"
-                id="exampleFormControlSelect1"
+                className="form-control"
+                id="SelectRegion"
                 onChange={e => setFormRegion(e.target.value)}
               >
                 <option value="north">North</option>
