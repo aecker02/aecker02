@@ -1,9 +1,9 @@
 .featured-section {
   display: flex;
   flex-wrap: wrap;
-  font-family: "Bebas Neue", cursive;
+  // font-family: "Bebas Neue", cursive;
 
-  @media (min-width: $phablet) {
+  @media (min-width: $tablet) {
     justify-content: space-between;
   }
 
@@ -38,7 +38,7 @@
     // padding: 16px;
     // border: solid 1px grey;
 
-    @media (min-width: $phablet) {
+    @media (min-width: $tablet) {
       width: 30%;
     }
   }
