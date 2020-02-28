@@ -19,7 +19,6 @@ export const usePrismicNavItems = () => {
   `);
 
   const results = data.prismic.allMaterialss.edges;
-
   const mainCategoriesAndChildren = results.reduce((acc, currentItem) => {
     let categoryName = "";
     const children = currentItem.node.material.map(material => {
