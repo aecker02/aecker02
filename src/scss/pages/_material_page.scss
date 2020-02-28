@@ -50,6 +50,42 @@
   &__enquiry-title {
     font-family: $copyFont;
     color: $color-tertiary;
+    margin-bottom: 20px;
+  }
+
+  &__add-dimension {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    label {
+      margin: 0 10px 0 0;
+    }
+
+    .input-group {
+      border-radius: 0.25rem;
+      overflow: hidden;
+      width: auto;
+      margin-right: 20px;
+
+      input {
+        padding: 0 5px;
+      }
+    }
+  }
+
+  &__added-dimension {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 0 10px;
+    border: none;
+  }
+
+  &__submit-dimension,
+  &__delete-dimension {
+    background-color: #b2904d !important;
+    border-color: #b2904d !important;
   }
 
   &__form-submit {
