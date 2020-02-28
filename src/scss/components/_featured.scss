@@ -1,7 +1,6 @@
 .featured-section {
   display: flex;
   flex-wrap: wrap;
-  // font-family: "Bebas Neue", cursive;
 
   @media (min-width: $tablet) {
     justify-content: space-between;

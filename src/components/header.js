@@ -1,6 +1,10 @@
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import React, { useState } from "react";
 import { withBreakpoints } from "react-breakpoints";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import cx from "classnames";
+
+import { usePrismicNavItems } from "./header.hooks";
 
 const Header = ({ breakpoints, currentBreakpoint }) => {
   const [navOpen, setNavOpen] = useState(false);
@@ -32,6 +36,27 @@ const Header = ({ breakpoints, currentBreakpoint }) => {
 };
 
 const RenderNav = () => {
+  const [activeNavItem, setActiveNavItem] = React.useState("");
+  const navData = usePrismicNavItems();
+
+  const MaterialNavItems = Object.keys(navData).map((material, index) => {
+    return (
+      <li key={index} className="header__nav--item">
+        <Link to={`/materials/${material}`}>{material}</Link>
+        <ul className="header__nav--grandchildren">
+          {navData[material].map((child, index) => (
+            <li key={index}>{child}</li>
+          ))}
+        </ul>
+      </li>
+    );
+  });
+
+  const handleNavItemClick = (evt, itemName) => {
+    evt.preventDefault();
+    setActiveNavItem(prevActive => (prevActive === itemName ? "" : itemName));
+  };
+
   return (
     <nav className="header__nav">
       <ul>
@@ -39,7 +64,26 @@ const RenderNav = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="header__nav--item">
-          <Link to="/materials">Materials</Link>
+          <Link
+            to="/materials"
+            onClick={evt => handleNavItemClick(evt, "materials")}
+          >
+            Materials
+            {activeNavItem === "materials" ? (
+              <FaChevronUp />
+            ) : (
+              <FaChevronDown />
+            )}
+          </Link>
+
+          <ul
+            className={cx(
+              { ["active"]: activeNavItem === "materials" },
+              "sub-items"
+            )}
+          >
+            {MaterialNavItems}
+          </ul>
         </li>
         <li className="header__nav--item">
           <Link to="/services">Services</Link>

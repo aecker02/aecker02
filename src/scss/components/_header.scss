@@ -34,7 +34,7 @@
       background-color: rgba($color-secondary, 0.75);
     }
 
-    @media (min-width: 990px){
+    @media (min-width: 990px) {
       display: flex;
       margin-left: 25px;
     }
@@ -90,7 +90,7 @@
     background-color: $color-primary;
     width: 100%;
     max-height: 0;
-    overflow: hidden;
+    // overflow: hidden;
 
     .nav-open & {
       transition: max-height 500ms linear;
@@ -120,6 +120,37 @@
 
     &--item {
       text-align: center;
+      position: relative;
+      display: block;
+      color: $color-tertiary;
+      text-decoration: none;
+      font-family: $copyFont;
+      font-size: 0.85rem;
+      padding: 10px;
+      text-transform: uppercase;
+
+      @media (min-width: 768px) {
+        padding: 20px 25px 10px;
+        margin-bottom: 10px;
+        color: $color-primary;
+
+        &:after {
+          background: none repeat scroll 0 0 transparent;
+          bottom: 0;
+          content: "";
+          display: block;
+          height: 2px;
+          left: 50%;
+          position: absolute;
+          background: $color-secondary;
+          transition: width 0.3s ease 0s, left 0.3s ease 0s;
+          width: 0;
+        }
+        &:hover:after {
+          width: 70%;
+          left: 15%;
+        }
+      }
 
       &:hover {
         background-color: $color-secondary-50;
@@ -130,38 +161,43 @@
       }
 
       a {
-        position: relative;
-        display: block;
         color: $color-tertiary;
-        text-decoration: none;
-        font-family: $copyFont;
-        font-size: 0.85rem;
-        padding: 10px;
-        text-transform: uppercase;
 
-        @media (min-width: 768px) {
-          padding: 20px 25px 10px;
-          margin-bottom: 10px;
+        @media (min-width: $tablet) {
           color: $color-primary;
-
-          &:after {
-            background: none repeat scroll 0 0 transparent;
-            bottom: 0;
-            content: "";
-            display: block;
-            height: 2px;
-            left: 50%;
-            position: absolute;
-            background: $color-secondary;
-            transition: width 0.3s ease 0s, left 0.3s ease 0s;
-            width: 0;
-          }
-          &:hover:after {
-            width: 70%;
-            left: 15%;
-          }
         }
       }
+
+      svg {
+        margin-left: 8px;
+      }
+
+      .sub-items {
+        display: none;
+
+        .header__nav--item {
+          @media (min-width: $tablet) {
+            text-align: left;
+          }
+        }
+
+        @media (min-width: $tablet) {
+          position: absolute;
+          z-index: 1;
+          background: #eeeeee;
+          opacity: 0.95;
+          left: 0;
+          top: 100%;
+        }
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+
+    .header__nav--grandchildren {
+      display: none;
     }
   }
 }
