@@ -16,20 +16,3 @@ export const getMaterials = data => {
     };
   }, {});
 };
-
-export const materialQuery = graphql`
-  query NavQuery {
-    prismic {
-      allMaterialss {
-        edges {
-          node {
-            material {
-              category
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-`;

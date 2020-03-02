@@ -4,11 +4,28 @@ import { withBreakpoints } from "react-breakpoints";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import cx from "classnames";
 
-import { getMaterials, materialQuery } from "./header.query";
+import { getMaterials } from "./header.query";
+
+const staticQuery = graphql`
+  query NavQuery {
+    prismic {
+      allMaterialss {
+        edges {
+          node {
+            material {
+              category
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const HeaderWithQuery = props => (
   <StaticQuery
-    query={`${materialQuery}`}
+    query={`${staticQuery}`}
     render={data => {
       const materials = getMaterials(data);
 
@@ -48,6 +65,7 @@ const Header = ({ breakpoints, currentBreakpoint, data }) => {
 
 const RenderNav = ({ data: navData }) => {
   const [activeNavItem, setActiveNavItem] = React.useState("");
+  // const navData = usePrismicNavItems();
 
   const MaterialNavItems = Object.keys(navData).map((material, index) => {
     return (

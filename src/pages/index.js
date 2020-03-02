@@ -8,7 +8,6 @@ import FeaturedMaterials from "../components/featured";
 import Breadcrumb from "../components/breadcrumb";
 
 const IndexPage = ({ data }) => {
-  console.log(data);
   const featuredMaterials =
     data.prismic.allFeatured_materialss.edges[0].node.material;
   const sliderProps = {
