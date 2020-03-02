@@ -1,12 +1,23 @@
-import { Link } from "gatsby";
+import { Link, StaticQuery } from "gatsby";
 import React, { useState } from "react";
 import { withBreakpoints } from "react-breakpoints";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import cx from "classnames";
 
-import { usePrismicNavItems } from "./header.hooks";
+import { getMaterials, materialQuery } from "./header.query";
 
-const Header = ({ breakpoints, currentBreakpoint }) => {
+const HeaderWithQuery = props => (
+  <StaticQuery
+    query={`${materialQuery}`}
+    render={data => {
+      const materials = getMaterials(data);
+
+      return <Header data={materials} {...props} />;
+    }}
+  />
+);
+
+const Header = ({ breakpoints, currentBreakpoint, data }) => {
   const [navOpen, setNavOpen] = useState(false);
 
   return (
@@ -19,7 +30,7 @@ const Header = ({ breakpoints, currentBreakpoint }) => {
         />
         <div className="header__inner">
           {breakpoints[currentBreakpoint] >= breakpoints.tablet ? (
-            <RenderNav />
+            <RenderNav data={data} />
           ) : null}
         </div>
         <div className="header__burger" onClick={() => setNavOpen(!navOpen)}>
@@ -29,15 +40,14 @@ const Header = ({ breakpoints, currentBreakpoint }) => {
         </div>
       </div>
       {breakpoints[currentBreakpoint] < breakpoints.tablet ? (
-        <RenderNav />
+        <RenderNav data={data} />
       ) : null}
     </header>
   );
 };
 
-const RenderNav = () => {
+const RenderNav = ({ data: navData }) => {
   const [activeNavItem, setActiveNavItem] = React.useState("");
-  const navData = usePrismicNavItems();
 
   const MaterialNavItems = Object.keys(navData).map((material, index) => {
     return (
@@ -96,4 +106,4 @@ const RenderNav = () => {
   );
 };
 
-export default withBreakpoints(Header);
+export default withBreakpoints(HeaderWithQuery);

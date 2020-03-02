@@ -24,6 +24,7 @@ const IndexPage = ({ data }) => {
       <HeroSlider {...sliderProps} />
       <Breadcrumb />
       <div className="container">
+        <h2>Popular materials</h2>
         <FeaturedMaterials featuredMaterials={featuredMaterials} />
       </div>
     </Layout>
@@ -44,6 +45,7 @@ export const query = graphql`
           }
         }
       }
+
       allFeatured_materialss {
         edges {
           node {
