@@ -4,10 +4,10 @@ const SES = new AWS.SES();
 
 function sendEmail(formData, callback) {
   const emailParams = {
-    Source: "aecker02@gmail.com",
+    Source: "craigdavidjones@hotmail.co.uk",
     ReplyToAddresses: [formData.reply_to],
     Destination: {
-      ToAddresses: ["aecker02+receiver1@gmail.com"]
+      ToAddresses: ["aecker02@gmail.com"]
     },
     Message: {
       Body: {
