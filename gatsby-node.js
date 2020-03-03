@@ -23,7 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
                   origin_country
                   imageSharp {
                     childImageSharp {
-                      fluid {
+                      fluid(maxWidth: 2000, quality: 50) {
                         base64
                         aspectRatio
                         src

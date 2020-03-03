@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Image from "gatsby-image";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Breadcrumb from "../components/breadcrumb";
@@ -8,7 +9,8 @@ import { GiStoneStack } from "react-icons/gi";
 import { IoIosColorPalette } from "react-icons/io";
 
 const MaterialsPage = ({ pageContext }) => {
-  const { name, category, color, image, origin_country } = pageContext;
+  console.log(pageContext);
+  const { name, category, color, imageSharp, origin_country } = pageContext;
   const formRef = useRef(null);
   const [formName, setFormName] = useState("");
   const [formEmail, setFormEmail] = useState("");
@@ -149,9 +151,9 @@ const MaterialsPage = ({ pageContext }) => {
         currentPage={toLowerKebabCase(name)}
       />
       <h1 className="material-page__title">{name}</h1>
-      <div
+      <Image
         className="material-page__image"
-        style={{ backgroundImage: `url(${image.url})` }}
+        fluid={imageSharp.childImageSharp.fluid}
       />
       <section className="material-page__information">
         <div className="material-page__item">

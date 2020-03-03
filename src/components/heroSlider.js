@@ -7,14 +7,7 @@ const HeroSlider = ({ slider_images, slider_title, slider_subtitle }) => {
       <div className="hero-slider__wrapper">
         {slider_images.map((image, i) => {
           const fluid = image.slider_imageSharp.childImageSharp.fluid;
-          return (
-            <Image
-              loading="eager"
-              className="hero-slider__slide"
-              key={i}
-              fluid={fluid}
-            />
-          );
+          return <Image className="hero-slider__slide" key={i} fluid={fluid} />;
         })}
       </div>
       <div className="hero-slider__content">
