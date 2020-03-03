@@ -178,16 +178,19 @@
 
         .header__nav--item {
           @media (min-width: $tablet) {
-            text-align: left;
+            text-align: center;
           }
         }
 
         @media (min-width: $tablet) {
           position: absolute;
+          min-width: 210px;
+
           z-index: 1;
           background: #eeeeee;
           opacity: 0.95;
-          left: 0;
+          left: 50%;
+          transform: translateX(-50%);
           top: 100%;
         }
 
