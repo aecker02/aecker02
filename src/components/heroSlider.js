@@ -1,16 +1,25 @@
 import React from "react";
+import Image from "gatsby-image";
 
-const HeroSlider = ({ images, title, subtitle }) => {
+const HeroSlider = ({ slider_images, slider_title, slider_subtitle }) => {
   return (
     <section className="hero-slider">
       <div className="hero-slider__wrapper">
-        {images.map((image, i) => (
-          <div className="hero-slider__slide" key={i} style={{backgroundImage: `url(${image})`}} />
-        ))}
+        {slider_images.map((image, i) => {
+          const fluid = image.slider_imageSharp.childImageSharp.fluid;
+          return (
+            <Image
+              loading="eager"
+              className="hero-slider__slide"
+              key={i}
+              fluid={fluid}
+            />
+          );
+        })}
       </div>
       <div className="hero-slider__content">
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
+        <h1>{slider_title}</h1>
+        <h2>{slider_subtitle}</h2>
       </div>
     </section>
   );

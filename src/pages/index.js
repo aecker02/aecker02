@@ -10,18 +10,11 @@ import Breadcrumb from "../components/breadcrumb";
 const IndexPage = ({ data }) => {
   const featuredMaterials =
     data.prismic.allFeatured_materialss.edges[0].node.material;
-  const sliderProps = {
-    title: "Title",
-    subtitle: "Subtitle",
-    images: data.prismic.allLayouts.edges[0].node.slider_images.map(
-      slide => slide.slider_image.url
-    )
-  };
 
   return (
     <Layout>
       <SEO title="Home" />
-      <HeroSlider {...sliderProps} />
+      <HeroSlider {...data.prismic.allLayouts.edges[0].node} />
       <Breadcrumb />
       <div className="container">
         <h2>Popular materials</h2>
@@ -41,7 +34,16 @@ export const query = graphql`
           node {
             slider_images {
               slider_image
+              slider_imageSharp {
+                childImageSharp {
+                  fluid(maxWidth: 2000, quality: 50) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  }
+                }
+              }
             }
+            slider_subtitle
+            slider_title
           }
         }
       }
